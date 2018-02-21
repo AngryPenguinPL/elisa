@@ -11,6 +11,7 @@ Source0:	elisa-0.0.81.tar.gz
 # Patch0:		elisa-desktop.patch
 # Disabled Patch1 fided by upstream?
 # Patch1:		elisa-0.0.1-cmake.patch
+Patch2: elisa-0.0.81-omv-force-qt-5-8.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5Archive)
 BuildRequires:	cmake(KF5ConfigWidgets)
@@ -59,6 +60,7 @@ A powerful media player for Plasma.
 
 %prep
 %setup -q
+%patch2 -p2
 
 %cmake_kde5
 
