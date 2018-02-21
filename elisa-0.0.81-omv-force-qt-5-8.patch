@@ -2,7 +2,7 @@ Index: CMakeLists.txt
 ===================================================================
 --- CMakeLists.txt
 +++ CMakeLists.txt	2018-02-21 23:16:30.740788632 +0100
-@@ -5,7 +5,7 @@
+@@ -8,7 +8,7 @@
  set(CMAKE_CXX_STANDARD_REQUIRED ON)
  set(CMAKE_CXX_STANDARD 14)
  
