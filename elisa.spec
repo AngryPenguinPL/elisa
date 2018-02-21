@@ -1,14 +1,16 @@
 Summary:	A powerful media player for Plasma
 Name:		elisa
-Version:	0.1
+Version:	0.0.81
 Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		https://github.com/KDE/elisa
-Source0:	elisa-0.1.tar.xz
-Source1:	elisa_ru.tar.gz
-Patch0:		elisa-desktop.patch
-Patch1:		elisa-0.0.1-cmake.patch
+Source0:	elisa-0.0.81.tar.gz
+# Source1:	elisa-0.0.81_ru.tar.gz
+# Disabled Patch0 fixed by upstream
+# Patch0:		elisa-desktop.patch
+# Disabled Patch1 fided by upstream?
+# Patch1:		elisa-0.0.1-cmake.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5Archive)
 BuildRequires:	cmake(KF5ConfigWidgets)
@@ -37,6 +39,7 @@ BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5WebSockets)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	pkgconfig(Qt5QuickTest)
 Requires:	qt5-qtquickcontrols2
 
 %description
@@ -48,6 +51,7 @@ A powerful media player for Plasma.
 %{_datadir}/kservices5//kcm_elisa_local_file.desktop
 %{_datadir}/kpackage/kcms/kcm_elisa_local_file/
 %{_iconsdir}/hicolor/scalable/apps/elisa.svg
+%{_iconsdir}/hicolor/*/apps/elisa.png
 %{_datadir}/metainfo/org.kde.elisa.appdata.xml
 %{_qt5_plugindir}/kcms/kcm_elisa_local_file.so
 
@@ -55,13 +59,6 @@ A powerful media player for Plasma.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-
-# Russian locale
-pushd po
-tar -xvzf %{SOURCE1}
-popd
 
 %cmake_kde5
 
@@ -72,4 +69,3 @@ popd
 %ninja_install -C build
 
 %find_lang %{name} kcm_elisa_local_file %{name}.lang --with-kde --with-html
-
