@@ -56,7 +56,7 @@ A powerful media player for Plasma.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p0
 
 %cmake_kde5
 
